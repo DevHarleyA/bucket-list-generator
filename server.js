@@ -8,7 +8,6 @@ MongoClient.connect(configDB.connectionURL, { useNewUrlParser: true, useUnifiedT
     .then(client => {
         console.log('Connected to Database')
         const dreamCollection = client.db('bucket-list').collection('dreams')
-        const conqueredCollection = client.db('bucket-list').collection('goals')
 
         app.set('view engine', 'ejs')
         app.use(bodyParser.urlencoded({ extended: true }))
@@ -18,7 +17,11 @@ MongoClient.connect(configDB.connectionURL, { useNewUrlParser: true, useUnifiedT
         app.get('/', (req, res) => {
             dreamCollection.find().toArray()
                 .then(results => {
-                    res.render('index.ejs', { dreams: results })
+                    let dream = results.filter(element => element.completed === false)
+                    let conquer = results.filter(element => element.completed === true)
+                    res.render('index.ejs', { dreams: dream, conquer: conquer })
+                    // instead of passing in all elements (result), pass in the filtered results (dream)
+                    //
                 })
         })
 
@@ -30,12 +33,20 @@ MongoClient.connect(configDB.connectionURL, { useNewUrlParser: true, useUnifiedT
             })
         })
 
-        app.post('/conquers', (req, res) => {
-            conqueredCollection.insertOne({ name: req.body.name, dream: req.body.dream, startDate: req.body.startDate, conqueredDate: Date("<YYYY-mm-dd>"), completed: true}, (err, result) => {
-                if (err) return console.log(err)
-                console.log('saved to database')
-            })
-        })
+        app.put('/dreams', (req, res) => {
+            dreamCollection.findOneAndUpdate({ name: req.body.name, dream: req.body.dream }, {
+                $set: {
+                  completed: true,
+                  completedDate: Date("<YYYY-mm-dd>")
+                }
+              }, {
+                sort: { _id: -1 },
+                upsert: false
+              }, (err, result) => {
+                if (err) return res.send(err)
+                res.send(result)
+              })
+          })
 
 
         app.delete('/dreamsDelete', (req, res) => {

@@ -86,7 +86,17 @@
         <section class="completed">
             <h3 class="header">Conquers</h3>
             <ul class="conquers">
-
+                <% for (let i=0; i < conquer.length; i++ ) {%>
+                    <li class="dream">
+                         <p><%= conquer[i].name %></p>
+                         <p><%= conquer[i].dream %></p>
+                         <span>Start Date: </span><span><%= conquer[i].startDate.slice(3,15) %></span>
+                         <span class="icons">
+                             <span>Delete: </span><span><i class="fa-solid fa-ban fa-xl"></i> <span>Conquered: </span> </span>
+                             <span><i class="fa-solid fa-circle-check fa-xl"></i></span>
+                         </span>
+                    </li> 
+                 <% } %>
             </ul>
         </section>
         <!-- Features: (Post) a bucket list item, mark it complete (update) & add date (update), and (delete) the task to make room for more -->
