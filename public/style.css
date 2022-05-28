@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    
+}
+
+/* Clearfix Hack */
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+/* Wire Frame Layout Setting (temp) */
+
+header, main, aside {
+    border: 1px solid black;
+}
+
+aside {
+    width: 30%;
+    float: left;
+    height: 700px;
+}
+
+main {
+    width: 70%;
+    height: 700px;
+    float: left;
+    display: flex;
+    /* background: url('asidebg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 78%; */
+}
+
+.banner {
+    height: 100px;
+    width: 100%;
+    background: url('light.jpg');
+    background-position: 50% 78%;
+}
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanquish</title>
+    <!-- add google font -->
+    <script src="https://kit.fontawesome.com/265ed8ed5a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <aside>
+        <section class="banner">
+            <!-- scenic photo banner -->
+        </section>
+        
+        <header>
+            <h1 class="title">Vanquish <i class="fa-solid fa-hand-fist fa-2xl"></i></h1>
+            <h3 class="subtitle">What do you want to Conquer?</h3>
+        </header>
+
+        <section class="details">
+            <!-- project explanation -->
+            <h3 class="fancy">What is Vanquish?</h3>
+            <p>What do you want to conquer in life? Vanquish is a tool that visitors can use to record their dreams and
+                wants out of life. Do you want to experience something? Learn something? Participate in an extroidinary
+                event? Vanquish is serves as a home for your dreams to transform into reality.</p>
+            <h3 class="fancy">How do I use Vanquish?</h3>
+            <p>Post your conquer goal to the board. Come back to complete it later. You can still view your conquered
+                goals until you're ready to clean up shop and get more goals on the board. Add a creative screen name to
+                unqiuely label your </p>
+        </section>
+
+        <section class="submit">
+            <!-- form -->
+            <h3 class="fancy">Submit your future</h3>
+            <form action="/dreams" method="post">
+                <div>
+                    <label class="label" for="name">Enter your screen name:</label>
+                    <input type="text" placeholder="screen name" name="name" required>
+                </div>
+                <div>
+                    <label for="dream" class="label">Enter your goal:</label>
+                    <textarea type="text" placeholder="Write your dream to conquer here" cols="30" rows="10" name="dream"
+                        required></textarea>
+                </div>
+                <button type="submit">Post</button>
+            </form>
+        </section>
+
+        <section class="social">
+            <!-- professional links/footer stuff -->
+            <ul class="social dos">
+                <li><i class="fa-solid fa-code"></i> Visit my <a href="https://aharleydev.netlify.app/"
+                        target="_blank">Portfolio</a></li>
+                <li><i class="fa-brands fa-twitter"></i> Follow me on <a href="https://twitter.com/DevHarleyA"
+                        target="_blank">Twitter</a></li>
+            </ul>
+            <small>&copy; HarleyADev 2022</small>
+        </section>
+
+    </aside>
+    <main>
+        <section class="goals">
+            <!-- have the results populate in separate divs here (post its)  -->
+            <h3 class="header">Dreams</h3>
+            <ul class="dreams">
+                <% for (let i=0; i < dreams.length; i++ ) {%>
+                   <li class="dream">
+                        <p><%= dreams[i].name %></p>
+                        <p><%= dreams[i].dream %></p>
+                        <span>Start Date: </span><span><%= dreams[i].startDate.slice(3,15) %></span>
+                        <span class="icons">
+                            <span>Delete: </span><span><i class="fa-solid fa-ban fa-xl"></i> <span>Conquered: </span> </span>
+                            <span><i class="fa-solid fa-circle-check fa-xl"></i></span>
+                        </span>
+                   </li> 
+                <% } %>
+            </ul>
+            
+        </section>
+        <section class="completed">
+            <h3 class="header">Conquers</h3>
+            <ul class="conquers">
+
+            </ul>
+        </section>
+        <!-- Features: (Post) a bucket list item, mark it complete (update) & add date (update), and (delete) the task to make room for more -->
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

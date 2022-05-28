@@ -1,0 +1,32 @@
+{
+  "name": "bucket-list-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bucket": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevHarleyA/bucket-list-generator.git"
+  },
+  "author": "A.Harley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevHarleyA/bucket-list-generator/issues"
+  },
+  "homepage": "https://github.com/DevHarleyA/bucket-list-generator#readme",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "body-parser": "^1.20.0",
+    "bson": "^4.6.4",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.6.0"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.6",
+    "nodemon": "^2.0.16"
+  }
+}
