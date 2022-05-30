@@ -4,7 +4,9 @@
 
 html {
     font-size: 62.5%;
-    
+    background: url('purple.jpg');
+    background-size: cover;
+    font-family: 'Yanone Kaffeesatz', Arial, Helvetica, sans-serif;
 }
 
 /* Clearfix Hack */
@@ -20,31 +22,65 @@ html {
 
 /* Wire Frame Layout Setting (temp) */
 
-header, main, aside {
-    border: 1px solid black;
+aside {
+    width: 40%;
+    float: left;
+    padding: 1%;
+    background: rgba(30,9,53,255);
+    color: rgba(205,139,124,255);
+    font-size: 1.5rem;
 }
 
-aside {
-    width: 30%;
-    float: left;
-    height: 700px;
+.logo {
+    width: 100%;
 }
 
 main {
-    width: 70%;
-    height: 700px;
+    width: 60%;
     float: left;
     display: flex;
-    /* background: url('asidebg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 78%; */
+    justify-content: space-around;
+    font-size: 1.5srem
 }
 
-.banner {
-    height: 100px;
-    width: 100%;
-    background: url('light.jpg');
-    background-position: 50% 78%;
+header {
+    background: url('logo.png');
+    background-size: contain;
+    height: 200px;
 }
 
+.conquers, .dreams {
+    list-style: none;
+    background: rgb(28,12,52, .7);
+    color: rgba(205,139,124,255);
+}
+
+.goals, .completed {
+    width: 50%;
+    padding: 2%;
+    font-size: 1.75rem;
+}
+
+.conquers>li, .dreams>li {
+    margin: 2%;
+    padding: 1%;
+}
+
+.dos {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.social {
+    text-align: center;
+}
+
+a {
+    color: rgb(84,50,73);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c8897a;
+}

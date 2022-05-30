@@ -8,20 +8,17 @@
     <title>Vanquish</title>
     <!-- add google font -->
     <script src="https://kit.fontawesome.com/265ed8ed5a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <aside>
-        <section class="banner">
-            <!-- scenic photo banner -->
-        </section>
-        
-        <header>
-            <h1 class="title">Vanquish <i class="fa-solid fa-hand-fist fa-2xl"></i></h1>
-            <h3 class="subtitle">What do you want to Conquer?</h3>
-        </header>
+
+        <img src="logo.PNG" alt="logo" class="logo">
 
         <section class="details">
             <!-- project explanation -->
@@ -40,13 +37,13 @@
             <h3 class="fancy">Submit your future</h3>
             <form action="/dreams" method="post">
                 <div>
-                    <label class="label" for="name">Enter your screen name:</label>
+                    <label class="label" for="name">Enter your screen name:</label><br>
                     <input type="text" placeholder="screen name" name="name" required>
                 </div>
                 <div>
-                    <label for="dream" class="label">Enter your goal:</label>
-                    <textarea type="text" placeholder="Write your dream to conquer here" cols="30" rows="10" name="dream"
-                        required></textarea>
+                    <label for="dream" class="label">Enter your goal:</label><br>
+                    <textarea type="text" placeholder="Write your dream to conquer here" cols="30" rows="10"
+                        name="dream" required></textarea>
                 </div>
                 <button type="submit">Post</button>
             </form>
@@ -54,7 +51,7 @@
 
         <section class="social">
             <!-- professional links/footer stuff -->
-            <ul class="social dos">
+            <ul class="dos">
                 <li><i class="fa-solid fa-code"></i> Visit my <a href="https://aharleydev.netlify.app/"
                         target="_blank">Portfolio</a></li>
                 <li><i class="fa-brands fa-twitter"></i> Follow me on <a href="https://twitter.com/DevHarleyA"
@@ -70,33 +67,47 @@
             <h3 class="header">Dreams</h3>
             <ul class="dreams">
                 <% for (let i=0; i < dreams.length; i++ ) {%>
-                   <li class="dream">
-                        <p><%= dreams[i].name %></p>
-                        <p><%= dreams[i].dream %></p>
-                        <span>Start Date: </span><span><%= dreams[i].startDate.slice(3,15) %></span>
+                    <li class="dream">
+                        <p>
+                            <%= dreams[i].name %>
+                        </p>
+                        <p>
+                            <%= dreams[i].dream %>
+                        </p>
+                        <span>Start Date: </span><span>
+                            <%= dreams[i].startDate.slice(3,15) %>
+                        </span>
                         <span class="icons">
-                            <span>Delete: </span><span><i class="fa-solid fa-ban fa-xl"></i> <span>Conquered: </span> </span>
+                            <span>Delete: </span><span><i class="fa-solid fa-ban fa-xl"></i> <span>Conquered: </span>
+                            </span>
                             <span><i class="fa-solid fa-circle-check fa-xl"></i></span>
                         </span>
-                   </li> 
-                <% } %>
+                    </li>
+                    <% } %>
             </ul>
-            
+
         </section>
         <section class="completed">
             <h3 class="header">Conquers</h3>
             <ul class="conquers">
                 <% for (let i=0; i < conquer.length; i++ ) {%>
                     <li class="dream">
-                         <p><%= conquer[i].name %></p>
-                         <p><%= conquer[i].dream %></p>
-                         <span>Start Date: </span><span><%= conquer[i].startDate.slice(3,15) %></span>
-                         <span class="icons">
-                             <span>Delete: </span><span><i class="fa-solid fa-ban fa-xl"></i> <span>Conquered: </span> </span>
-                             <span><i class="fa-solid fa-circle-check fa-xl"></i></span>
-                         </span>
-                    </li> 
-                 <% } %>
+                        <p>
+                            <%= conquer[i].name %>
+                        </p>
+                        <p>
+                            <%= conquer[i].dream %>
+                        </p>
+                        <span>Completed Date: </span><span>
+                            <%= conquer[i].completedDate.slice(3,15) %>
+                        </span>
+                        <span class="icons">
+                            <span>Delete: </span><span><i class="fa-solid fa-ban fa-xl"></i> <span>Conquered: </span>
+                            </span>
+                            <span><i class="fa-solid fa-circle-check fa-xl"></i></span>
+                        </span>
+                    </li>
+                    <% } %>
             </ul>
         </section>
         <!-- Features: (Post) a bucket list item, mark it complete (update) & add date (update), and (delete) the task to make room for more -->
